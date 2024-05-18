@@ -1,4 +1,4 @@
-import {cart, removeFromCart} from '../data/cart.js';
+import {cart, removeFromCart, addTocart} from '../data/cart.js';
 import {products} from '../data/product.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
 import { updatePrice } from '../data/priceManager.js';
@@ -10,6 +10,8 @@ deliveyDate = deliveyDate.format('DD MMM, dddd');
 function renderOrderSummary(){
 
     let cartSummaryHtml = '';
+
+    let productsHtml = ''
     cart.forEach((cartItem) => {
 
         const productId = cartItem.productId;
@@ -40,18 +42,53 @@ function renderOrderSummary(){
                     </div>
                     <div class="addition">
                         <p>Add gift wrap and letter for someone <span style="font-weight:bold;"> &#x20b9;50/-</span></p>
-                            <button>Add</button>
+                            <button class="gift-addition">Add</button>
                     </div>
                     <div class="order">
-                        <p>Order today.Delivers to 400011††
+                        <p>Order today.Delivers to 400011
                             <span style="color:green; font-weight:bolder;">${deliveyDate}— Free</span></p>
-                        <p>Order now. Pick up, in-store:
-                            Today at Store.</p>
+                        <p>Order now.Today at Store.</p>
                     </div>
                 </div>
             </div>
         </div>
         `;
+    });
+
+    products.slice(0,10).forEach((product) => {
+        productsHtml += `
+            <div class="select-pro">
+                <div>
+                    <img src="./product-images/${product.image}" alt="product-image">
+    
+                    <p class="product-name">${product.name}</p>
+                    <div class="select-details">
+                        <div class="pricing">
+                            <p>MRP &#x20b9; ${(product.priceCents/100).toFixed(2)} /-</p>
+                            <p>Wholesale Rate: &#x20b9;${(product.wholesaleRate/100).toFixed(2)} /-</p>
+                        </div>  
+                        <div>
+                            <i class="fa-solid a-shopping-bag js-add-to-cart" data-product-id="${product.productId}">~O~</i>
+                        </div>  
+                    </div>      
+                </div>
+            </div> `;
+    })
+    
+    document.querySelector('.js-products-grid').innerHTML = productsHtml;
+    
+    document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+        button.addEventListener('click', () => {
+            const productId = button.dataset.productId;
+            addTocart(productId);
+            let cartQuantity = 0;
+    
+            cart.forEach((item) => {
+                cartQuantity += item.quantity;
+            })
+    
+            document.querySelector('.js-cart').innerHTML = cartQuantity;
+        });
     });
 
     document.querySelector('.js-order-summary').innerHTML = cartSummaryHtml;
@@ -70,6 +107,12 @@ function renderOrderSummary(){
         });
 
     document.querySelectorAll('.update-price').forEach((element) => {
+        element.addEventListener('click', () => {
+            updatePrice();
+            renderOrderSummary();
+        })
+    })
+    document.querySelectorAll('.js-add-to-cart').forEach((element) => {
         element.addEventListener('click', () => {
             updatePrice();
             renderOrderSummary();

@@ -67,7 +67,7 @@ main {
     transition: all 0.3s ease-in-out;
 }
 
-.product-details {
+.product-detail {
     margin: 0px 15px;
     display: flex;
     justify-content: space-evenly;
@@ -82,11 +82,11 @@ main {
     text-align: center;
 }
 
-.product-details span {
+.product-detail span {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
-.product-details i {
+.product-detail i {
     float: right;
     padding: 7px 7px;
     font-size: 20px;
@@ -98,12 +98,12 @@ main {
 
 }
 
-.product-details i:hover {
+.product-detail i:hover {
     background-color: rgb(57, 57, 57);
     color: #FFD700;
 }
 
-.product-details i:active {
+.product-detail i:active {
     background-color: black;
     color: whitesmoke;
 }

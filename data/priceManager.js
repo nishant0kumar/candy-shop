@@ -3,7 +3,6 @@ import {cart} from './cart.js';
 
 export function updatePrice() {
     let totalValue = 0;
-    let value = 0;
 
     cart.forEach((cartItem) => {
 
@@ -26,11 +25,13 @@ export function updatePrice() {
             <img src="https://www.iconeasy.com/icon/256/System/Swirl%20Finder/Finder%20Candy.png">
         </div>
         `;
+        document.querySelector('.js-total-amount').innerHTML = `Bitter`;
+        document.querySelector('.shipping').innerHTML = '&#x20b9;0'
+        document.querySelector('.js-total-amounts').innerHTML = `&#x20b9;0`;
+        document.querySelector('.js-total-amountss').innerHTML = `&#x20b9;0`;
     } else {
-        true;
+        document.querySelector('.js-total-amount').innerHTML = `&#x20b9;${((totalValue + 10000)/100).toFixed(2)}`;
+        document.querySelector('.js-total-amounts').innerHTML = `&#x20b9;${((totalValue)/100).toFixed(2)}`;
+        document.querySelector('.js-total-amountss').innerHTML = `&#x20b9;${((totalValue + 10000)/100).toFixed(2)}`;
     }
-    document.querySelector('.js-total-amount').innerHTML = `&#x20b9;${((totalValue)/100).toFixed(2)}`;
-    document.querySelector('.js-total-amounts').innerHTML = `&#x20b9;${(totalValue)/100}`;
-    document.querySelector('.js-total-amountss').innerHTML = `&#x20b9;${((totalValue)/100).toFixed(2)}`;
-    
 }

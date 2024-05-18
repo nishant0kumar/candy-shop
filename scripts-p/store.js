@@ -11,7 +11,7 @@ products.forEach((product) => {
     </div>
 
     <p class="product-name">${product.name}</p>
-    <div class="product-details">
+    <div class="product-detail">
       <div className="price">
         <p>MRP &#x20b9;${((product.priceCents)/100).toFixed(2)}/-</p>
         <p>Wholesale rate: &#x20b9; ${(product.wholesaleRate/100).toFixed(2)} /-<p>
