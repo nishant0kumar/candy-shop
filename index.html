@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anita Sweet HOuse</title>
   <link rel="stylesheet" href="css/dark-mode.css">
-  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style1.css">
   <script src="https://kit.fontawesome.com/96ee3b227d.js" crossorigin="anonymous"></script>
   <script type="module" src="scripts-p/webPage.js"></script>
@@ -21,8 +21,9 @@
       <a href="" class="nav-link">About</a>
       <a href="mailto:nishant51121@gmail.com" class="nav-link">Support</a>
       <a href="pages/contact.html" class="nav-link">Contact</a>
-      <input type="text" placeholder="Search" class="search-input">
-      <a href="checkout.html" class="cart-link"><i class="fa-solid f-shopping-bag cart-btn js-cart-live-quantity"><span class="js-cart"></span>~O~</i></a>
+      <div class="js-cart-container">
+        
+      </div>
     </nav>
   </header>
 
@@ -69,7 +70,7 @@
   <span class="scroll-right">&RightAngleBracket;</span>
   <span class="scroll-left">&LeftAngleBracket;</span>
 
-  <footer>
+  <footer class="web-footer">
     <div class="footer">
       <h1>Quick Links</h1>
       <button>Order Status</button>
@@ -106,5 +107,12 @@
       </ul>
     </div>
   </footer>
+
+  <div class="mobile-footer">
+    <a href="/"><i class="fa-solid fa-house"></i></a>
+    <a href="./pages/store.html"><i class="fa-solid fa-store"></i></a>
+    <a href=""><i class="fa-solid fa-heart"></i></a>
+    <div class="js-cart-bag"></div>
+  </div>
 </body>
 </html>

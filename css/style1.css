@@ -103,167 +103,11 @@
 
 }
 
-.select-product-cart {
-    display: grid;
-    grid-template-columns:auto auto auto auto auto auto auto auto auto auto;
-    gap: 1.5rem;
-    overflow: scroll;
-    padding: 0rem 5rem;
-    height: max-content;
-
-}
-
-.select-pro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 0rem;
-    padding: 10rem 1rem;
-    height: 32rem;
-    width: 25rem;
-    border-radius: 24px;
-    border: 1px solid rgb(121, 121, 121);
-    box-shadow: 1px 1px 1px rgb(218, 218, 218);
-    transition: all 0.3s ease-in-out;
-
-}
-
-.select-pro img {
-    padding-top: 30px;
-    height: 22rem;
-    width: 20rem;
-}
-
-.product-name {
-    text-align: center;
-    font-family: cursive;
-    font-weight: bolder;
-    font-size: 24px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.select-details {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.select-pro button {
-    border: none;
-}
-
-.select-pro i {
-    padding: 10px 10px;
-    font-size: 20px;
-    color: black;
-    border: none;
-    border-radius: 4px;
-    background-color: #FFD700;
-    transition: all 0.2s ease-in-out;
-}
-
-.select-pro i:hover {
-    background-color: rgb(57, 57, 57);
-    color: #FFD700;
-}
-
-.select-pro i:active {
-    background-color: black;
-    color: whitesmoke;
-}
-
-
-.select-pro:hover {
-    -webkit-transform: scale(1.01);
-    transform: scale(1.01);
-    cursor: pointer;
-    box-shadow: 1px 1px 10px rgb(218, 218, 218);
-
-}
-
-.scroll-left {
-    color: black;
-    font-size: 20px;
-    font-weight: bolder;
-    padding: 14px 18px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.752);
-    position: relative;
-    top: -20rem;
-    z-index: 5;
-    margin-left: 25px;
-    cursor: pointer;
-}
-
-.scroll-right {
-    color: black;
-    font-size: 20px;
-    font-weight: bolder;
-    padding: 14px 18px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.745);
-    position: relative;
-    top: -20rem;
-    float: right;
-    z-index: 5;
-    cursor: pointer;
-}
-
-footer {
-    margin-top: 3rem;
-    padding: 5rem 0rem;
-    padding-left: 5rem;
-    padding-right: 10rem;
-    background-color: #d0d0d0;
-}
-
-footer button {
-    padding: 10px 20px;
-    border-radius: 24px;
-    margin: 8px 2px;
-    border: 1px solid rgb(169, 169, 169);
-    cursor: pointer;
-}
-
-footer li {
-    color: rgb(92, 92, 92);
-    margin-top: 2rem;
-    margin-left: 5rem;
-    font-size: 14px;
-    font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
-}
-
-.copy {
-    margin-top: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    flex-wrap: wrap;
-    height: 5rem;
-    align-items: center;
-}
-
-.copy ul {
-    display: flex;
-    list-style: none;
-}
-
-li a {
-    text-decoration: none;
-}
-
 @media  screen and (max-width : 620px) {
 
     .about-products {
         font-size: 30px;
         margin-top: 20px;
-    }
-
-    .fa-search {
-        display: none;
     }
 
     .welcome {
@@ -319,66 +163,11 @@ li a {
         font-size: 14px;
     }
 
-    .scroll-left, .scroll-right {
-        display: none;
+    .fa-house {
+        color: rgb(255, 0, 238);
     }
 
-    .select-product-cart {
-        padding: 0 1rem;
-    }
-
-    .select-pro {
-        height: 25rem;
-        width: 20rem;
-    }
-
-    .select-pro img {
-        height: 17rem;
-        width: 17rem;
-    }
-
-    .select-pro p {
-        font-family: cursive;
-        font-weight: bolder;
-        font-size: 21px;
-        margin: 10px 0px;
-    }
-
-    .pricing {
-        margin-bottom: 15px;
-    }
-
-    .pricing p {
-        font-family: sans-serif;
-        font-size: 14px;
-    }
-
-    .select-pro i {
-        font-size: 15px;
-        margin: 0px 10px 10px 30%;
-    }
-
-    footer {
-        margin-top: 3rem;
-        padding: 15px;
-    }
-
-    .footer {
-        padding-top: 3rem;
-    }
-
-    footer button {
-        padding: 8px 16px;
-        margin: 0;
-    }
-
-    footer li {
-        margin-left: 10px ;
-    }
-
-    .copy ul {
-        display: none;
-    }
+    
 }
 
 @media  screen and (max-width : 950px) and (min-width : 620px) {

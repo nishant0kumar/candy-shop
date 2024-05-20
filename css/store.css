@@ -135,4 +135,9 @@ main {
     .product-container {
         width: 300px;
     }
+
+    .fa-store {
+        color: rgb(255, 0, 238);
+
+    }
 }

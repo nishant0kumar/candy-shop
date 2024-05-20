@@ -198,6 +198,15 @@
     .your-payment {
         width: 20rem;
     }
+
+    .fa-house {
+        color: red;
+    }
+
+    .fa-shopping-bag {
+        color: rgb(255, 0, 238);
+        
+    }
 }
 
 @media  screen and (max-width : 1128px) and (min-width : 690px) {
