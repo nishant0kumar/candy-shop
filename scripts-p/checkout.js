@@ -1,4 +1,4 @@
-import {cart, removeFromCart, addTocart} from '../data/cart.js';
+import {cart, removeFromCart, addTocart, cartQuantity} from '../data/cart.js';
 import {products} from '../data/product.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
 import { updatePrice } from '../data/priceManager.js';
@@ -98,8 +98,7 @@ function renderOrderSummary(){
         .forEach((link) => {
             link.addEventListener('click', () => {
                 const productId = link.dataset.productId;
-                removeFromCart(productId);
-                
+                removeFromCart(productId); 
 
                 const container = document.querySelector(`.js-product-box-${productId}`);
                 container.remove();
@@ -118,6 +117,14 @@ function renderOrderSummary(){
             renderOrderSummary();
         })
     })
+    let bagHtml = `<a href="checkout.html"><span class="js-bag">${cartQuantity}</span><i class="fa-solid fa-shopping-bag"></i></a>`
+
+    let carthtml = `
+    <a href="" class="cart-link"><i class="fa-solid f-shopping-bag cart-btn js-cart-live-quantity"><span class="js-cart">${cartQuantity}</span>~O~</i></a>
+    `
+    document.querySelector('.js-cart-container').innerHTML = carthtml;
+    document.querySelector('.js-cart-bag').innerHTML = bagHtml;
+
 };
 
 renderOrderSummary();

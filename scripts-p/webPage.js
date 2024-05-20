@@ -1,4 +1,4 @@
-import {cart, addTocart} from '../data/cart.js';
+import {cartQuantity, addTocart} from '../data/cart.js';
 import {products} from '../data/product.js';
 
 let productsHtml = '';
@@ -32,6 +32,14 @@ products.slice(0,10).forEach((product) => {
         </div> `;
 })
 
+let bagHtml = `<a href="checkout.html"><span class="js-bag">${cartQuantity}</span><i class="fa-solid fa-shopping-bag"></i></a>`
+
+let carthtml = `
+<a href="checkout.html" class="cart-link"><i class="fa-solid f-shopping-bag cart-btn js-cart-live-quantity"><span class="js-cart">${cartQuantity}</span>~O~</i></a>
+`
+document.querySelector('.js-cart-container').innerHTML = carthtml;
+document.querySelector('.js-cart-bag').innerHTML = bagHtml;
+
 document.querySelector('.js-showcase').innerHTML = showCase;
 
 document.querySelector('.js-products-grid').innerHTML = productsHtml;
@@ -40,12 +48,8 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
         addTocart(productId);
-        let cartQuantity = 0;
-
-        cart.forEach((item) => {
-            cartQuantity += item.quantity;
-        })
 
         document.querySelector('.js-cart').innerHTML = cartQuantity;
+        document.querySelector('.js-bag').innerHTML = cartQuantity;
     });
 });
