@@ -28,10 +28,10 @@ let carthtml = `
 <a href="../checkout.html" class="cart-link"><i class="fa-solid f-shopping-bag cart-btn js-cart-live-quantity"><span class="js-cart">${cartQuantity}</span>~O~</i></a>
 `
 
-let bagHtml = `<a href="checkout.html"><span class="js-bag">${cartQuantity}</span><i class="fa-solid fa-shopping-bag"></i></a>`
+let bagHtml = `<a href="../checkout.html"><span class="js-bag">${cartQuantity}</span><i class="fa-solid fa-shopping-bag"></i></a>`
 
 document.querySelector('.js-cart-container').innerHTML = carthtml;
-document.querySelector('.js-cart-bag').innerHTML = carthtml;
+document.querySelector('.js-cart-bag').innerHTML = bagHtml;
 
 document.querySelector('.container').innerHTML = productsHtml;
 

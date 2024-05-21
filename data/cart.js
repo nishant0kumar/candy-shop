@@ -2,21 +2,12 @@
 
 export let cartQuantity = JSON.parse(localStorage.getItem('cartQuantity'));
 if (cartQuantity == null || cartQuantity == undefined) {
-    cartQuantity = 3;
+    cartQuantity = 0;
 }
 
 export let cart = JSON.parse(localStorage.getItem('cart'));
 if (!cart) {
-    cart = [{
-        productId: 'a1',
-        quantity: 1
-    }, {
-        productId: 'a2',
-        quantity: 1
-    }, {
-        productId: 'a3',
-        quantity: 1
-    }];
+    cart = [];
 }
 
 export function saveToStorage() {
@@ -59,9 +50,7 @@ export function removeFromCart(productId){
     cart.forEach((items) => {
         if(productId === items.productId){
             cartQuantity -= items.quantity;
-        }
-        else{
-            cartQuantity--;
+            console.log("if", cartQuantity);
         }
     })
 

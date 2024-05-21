@@ -32,6 +32,7 @@ export function updatePrice() {
     } else {
         document.querySelector('.js-total-amount').innerHTML = `&#x20b9;${((totalValue + 10000)/100).toFixed(2)}`;
         document.querySelector('.js-total-amounts').innerHTML = `&#x20b9;${((totalValue)/100).toFixed(2)}`;
+        document.querySelector('.shipping').innerHTML = '&#x20b9;100'
         document.querySelector('.js-total-amountss').innerHTML = `&#x20b9;${((totalValue + 10000)/100).toFixed(2)}`;
     }
 }
