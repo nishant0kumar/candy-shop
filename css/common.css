@@ -325,6 +325,7 @@ li a {
         display: flex;
         justify-content: space-evenly;
         padding: 10px 0px;
+        backdrop-filter: blur(25px);
     }
     
     .mobile-footer a {
