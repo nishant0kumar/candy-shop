@@ -97,6 +97,10 @@
 
 @media  screen and (max-width : 620px) {
 
+    .about {
+        margin-top: 2rem;
+    }
+
     .about-products {
         font-size: 30px;
         margin-top: 20px;
@@ -113,7 +117,7 @@
     .late{
         text-align: center;
         padding: 0;
-        margin: 5rem 0 2rem 0 ;
+        margin: 8rem 0 2rem 0 ;
     }
 
     .products-prompt{
