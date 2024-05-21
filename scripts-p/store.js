@@ -1,11 +1,14 @@
 import {products} from '../data/product.js'
 import {addTocart, cartQuantity} from '../data/cart.js';
+import { addToFavourList } from "../data/favour.js";
+
 
 let productsHtml = '';
 
 products.forEach((product) => {
     productsHtml += `
     <div class="product-container">
+    <div class="wish-button"><button><i class="fa-solid fa-heart js-favour-click" data-product-id="${product.productId}"></i> </button></div>
     <div class="img-container">
       <img src="../product-images/${product.image}" alt="product-image">
     </div>
@@ -43,5 +46,13 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
       document.querySelector('.js-cart').innerHTML = cartQuantity;
       document.querySelector('.js-bag').innerHTML = cartQuantity;
 
+  });
+});
+
+
+document.querySelectorAll('.js-favour-click').forEach((button) => {
+  button.addEventListener('click', () => {
+      const productId = button.dataset.productId;
+      addToFavourList(productId);
   });
 });

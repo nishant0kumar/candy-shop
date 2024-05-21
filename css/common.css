@@ -319,7 +319,8 @@ li a {
 
     
     .mobile-footer {
-        position: sticky;
+        position: fixed;
+        width: 100%;
         bottom: 0;
         display: flex;
         justify-content: space-evenly;
@@ -353,6 +354,7 @@ li a {
     .web-footer {
         margin-top: 3rem;
         padding: 15px;
+        padding-bottom: 3rem;
     }
 
     .footer {

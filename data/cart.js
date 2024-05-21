@@ -50,7 +50,6 @@ export function removeFromCart(productId){
     cart.forEach((items) => {
         if(productId === items.productId){
             cartQuantity -= items.quantity;
-            console.log("if", cartQuantity);
         }
     })
 
