@@ -19,14 +19,6 @@
     line-height: 1.5;
 }
 
-.late {
-    margin-top: 5rem;
-    margin-bottom: 1rem;
-    margin-left: 5rem;
-    font-size: 30px;
-    font-weight: bolder;
-}
-
 .products-prompt {
     display: flex;
     flex-wrap: wrap;
