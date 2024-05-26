@@ -1,5 +1,10 @@
+.broder {
+    margin: 6rem;
+    border: 1px solid rgb(132, 132, 132);
+}
+
 .amount {
-    margin: 6rem 0rem;
+    margin: 7rem 0rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,7 +132,7 @@
 
 .contre {
     margin: 2rem 0rem;
-    margin-bottom: 10rem;
+    margin-bottom: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,6 +167,12 @@
 }
 
 @media  screen and (max-width : 690px) {
+
+    .broder {
+        margin: 0;
+        border: none;
+    }
+
     .amount p {
         font-size: 25px;
     }
