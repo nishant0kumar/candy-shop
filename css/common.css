@@ -331,8 +331,8 @@ li a {
         bottom: 0;
         display: flex;
         justify-content: space-evenly;
-        background-color: white;
         padding: 10px 0px;
+        backdrop-filter: blur(25px);
     }
     
     .mobile-footer a {
