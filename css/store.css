@@ -6,6 +6,7 @@ main {
 }
 
 .section-name {
+    margin-top: 5rem;
     font-family: monospace;
     text-align: center;
     font-size: 40px;
@@ -38,6 +39,7 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin: 2rem 0rem;
 }
 
 .product-container {
@@ -145,11 +147,15 @@ main {
     font-size: 10px;
    }
 }
-@media (max-width:800px) {
+@media (max-width:700px) {
     main {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .section-name {
+        margin: 0rem;
     }
 
     .container {
