@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/dark-mode.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/store.css">
     <script src="https://kit.fontawesome.com/96ee3b227d.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -19,8 +20,7 @@
     
         <nav class="nav">
           <a href="pages/store.html" class="nav-link">Store</a>
-          <a href="" class="nav-link">About</a>
-          <a href="" class="nav-link">Support</a>
+          <a href="./pages/wishlist.html" class="nav-link">Love</a>
           <a href="" class="nav-link">Contact</a>
           <div class="js-cart-container">
 
@@ -28,38 +28,46 @@
         </nav>
     </header>
 
-    <div class="amount">
-        <p>Your bag total is <span class="js-total-amount">Bitter</span></p>
-        <button class="check-out">Check Out</button>
-    </div>
+    <div class="broder">
+        <div class="amount">
+            <p>Your bag total is <span class="js-total-amount">Bitter</span></p>
+            <button class="check-out">Check Out</button>
+        </div>
 
-    <div class="product-information js-order-summary empty-cart">
-    </div>
-    
+        <div class="product-information js-order-summary empty-cart">
+        </div>
+        
 
-    <div class="contre">
-        <p style="text-align: center; font-size: 2rem; font-weight: bold;">Order Summary</p>
-        <div class="reciept">
-            <div class="your-payment">
-                <div class="bill">
-                    <p>Subtotal</p>
-                    <p>Shipping</p>
-                    <hr>
-                    <p style="color:#0071E3; font-size: 30px; font-weight: bold;">Total</p>
-                </div>
-                <div class="payment">
-                    <p class="js-total-amounts">&#x20b9;0</p>
-                    <p class="shipping">&#x20b9;100</p>
-                    <hr>
-                    <p style="font-size: 30px; font-weight: bold; color:#0071E3;">
-                        <span class="js-total-amountss">&#x20b9;0</span>
-                    </p>
+        <div class="contre">
+            <p style="text-align: center; font-size: 2rem; font-weight: bold;">Order Summary</p>
+            <div class="reciept">
+                <div class="your-payment">
+                    <div class="bill">
+                        <p>Subtotal</p>
+                        <p>Shipping</p>
+                        <hr>
+                        <p style="color:#0071E3; font-size: 30px; font-weight: bold;">Total</p>
+                    </div>
+                    <div class="payment">
+                        <p class="js-total-amounts">&#x20b9;0</p>
+                        <p class="shipping">&#x20b9;100</p>
+                        <hr>
+                        <p style="font-size: 30px; font-weight: bold; color:#0071E3;">
+                            <span class="js-total-amountss">&#x20b9;0</span>
+                        </p>
+                    </div>
                 </div>
             </div>
+            <button class="check-out">Check Out</button>
         </div>
-        <button class="check-out">Check Out</button>
     </div>
 
+
+    <div class="more">
+        <p class="late">Add from your Love</p>
+        <div class="select-product-cart js-products-grid-love">
+        </div>
+    </div>
 
     <div class="more">
         <p class="late">More Products To Add</p>
