@@ -3,6 +3,8 @@ import {products} from '../data/product.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
 import { updatePrice } from '../data/priceManager.js';
 
+import { favourList} from "../data/favour.js";
+
 const today = dayjs();
 let deliveyDate = today.add(7,'days');
 deliveyDate = deliveyDate.format('DD MMM, dddd');
@@ -74,6 +76,45 @@ function renderOrderSummary(){
                 </div>
             </div> `;
     })
+
+    let favourHtml = '';
+    favourList.forEach((favourItem) => {
+
+    const productId = favourItem.productId;
+
+    let matchingProduct;
+
+    products.forEach((product) => {
+        if (product.productId === productId) {
+            matchingProduct = product;
+        }
+    });
+
+        favourHtml +=
+        `
+        <div class="product-container js-product-container-${matchingProduct.productId}" >
+            <div class="wish-button">
+                <button><i class="fa-solid fa-heart js-delete-link" style="color:red;" data-product-id="${matchingProduct.productId}"></i> </button>
+            </div>
+            <div class="img-container">
+                <img src="../product-images/${matchingProduct.image}" alt="product-image">
+            </div>
+
+            <p class="product-name">${matchingProduct.name}</p>
+            <div class="product-detail">
+                <div className="price">
+                    <p>MRP &#x20b9;${((matchingProduct.priceCents)/100).toFixed(2)}/-</p>
+                    <p>Wholesale rate: &#x20b9; ${(matchingProduct.wholesaleRate/100).toFixed(2)} /-<p>
+                </div>
+                <div className="cart">
+                    <i class="fa-solid a-shopping-bag js-add-to-cart" data-product-id="${matchingProduct.productId}"><span> ~O~</span></i>
+                </div>
+            </div>
+        </div> `
+    ;
+    });
+
+    document.querySelector('.js-products-grid-love').innerHTML = favourHtml;
     
     document.querySelector('.js-products-grid').innerHTML = productsHtml;
     
@@ -124,6 +165,18 @@ function renderOrderSummary(){
     `
     document.querySelector('.js-cart-container').innerHTML = carthtml;
     document.querySelector('.js-cart-bag').innerHTML = bagHtml;
+
+    document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+        button.addEventListener('click', () => {
+            const productId = button.dataset.productId;
+            addTocart(productId);
+    
+            document.querySelector('.js-cart').innerHTML = cartQuantity;
+            document.querySelector('.js-bag').innerHTML = cartQuantity;
+    
+        });
+    });
+    
 
 };
 
