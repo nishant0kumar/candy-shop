@@ -1,5 +1,5 @@
 .broder {
-    margin: 6rem;
+    margin: 7rem 1rem 1rem 1rem;
     border: 1px solid rgb(132, 132, 132);
 }
 
@@ -40,6 +40,10 @@
     align-items: center;
 }
 
+.product-box i {
+    color: red;
+}
+
 .product1 {
     display: flex;
     padding: 1rem 1rem;
@@ -78,11 +82,11 @@
 }
 
 .product-details input {
-    width: 30px;
+    width: 60px;
     border: none;
     font-size: 30px;
     font-weight: bolder;
-    color: black;
+    outline: none;
 }
 
 .product-details button {
@@ -148,7 +152,7 @@
     justify-content: space-evenly;
     align-items: center;
     border: 1px solid rgb(85, 85, 85);
-    width: 50rem;
+    width: 40rem;
     padding: 1rem 0rem;
 }
 

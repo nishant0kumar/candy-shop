@@ -1,4 +1,4 @@
-import { products } from "./product.js";
+import { product } from "./product.js";
 import {cart} from './cart.js';
 
 export function updatePrice() {
@@ -10,7 +10,7 @@ export function updatePrice() {
     
         let matchingProduct;
     
-        products.forEach((product) => {
+        product.forEach((product) => {
             if (product.productId === productId) {
                 matchingProduct = product;
                 totalValue += matchingProduct.priceCents * cartItem.quantity;
@@ -21,7 +21,7 @@ export function updatePrice() {
     if (totalValue === 0) {
         document.querySelector('.empty-cart').innerHTML = `
         <div class="product-box">
-            <h1>Sweetness None! Add Some {:=)</h1><br><br><br>
+            <h1>Sweetness None! Add Some {</h1><br><br><br>
             <img src="https://www.iconeasy.com/icon/256/System/Swirl%20Finder/Finder%20Candy.png">
         </div>
         `;

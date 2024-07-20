@@ -5,7 +5,7 @@
     font-family: sans-serif;
 }
 
-::-webkit-scrollbar {
+.select-product-cart::-webkit-scrollbar{
     display: none;
 }
 
@@ -19,7 +19,7 @@ header {
     width: 100%;
     top: 0px;
     z-index: 1;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(100px);
 }
 
 .loogo img {
@@ -56,7 +56,6 @@ header {
 .cart-link i {
     text-decoration: none;
     color: red;
-    font-size: 30px;
 }
 
 .cart-link i:hover{
@@ -68,7 +67,7 @@ header {
     top: -4px;
     right: 22px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 18px;
     font-family: monospace;
 }
 
@@ -83,10 +82,10 @@ header {
 }
 
 .select-product-cart {
-    display: grid;
-    grid-template-columns:auto auto auto auto auto auto auto auto auto auto;
+    display: flex;
+    flex-wrap: nowrap;
     gap: 1.5rem;
-    overflow: scroll;
+    overflow-x: scroll;
     padding: 4rem 6rem;
     height: max-content;
 }
@@ -166,8 +165,7 @@ header {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.752);
     position: relative;
-    top: -20rem;
-    z-index: 5;
+    top: -30rem;
     margin-left: 25px;
     cursor: pointer;
 }
@@ -180,9 +178,8 @@ header {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.745);
     position: relative;
-    top: -20rem;
+    top: -30rem;
     float: right;
-    z-index: 5;
     cursor: pointer;
 }
 
@@ -268,6 +265,12 @@ li a {
         text-align: center;
     }
 
+    .cart-link {
+        background-color: transparent;
+        margin: 0;
+        padding: 5px;
+    }
+
     .cart-link i {
         font-size: 24px;
     }
@@ -330,15 +333,16 @@ li a {
         width: 100%;
         bottom: 0;
         display: flex;
-        justify-content: space-evenly;
-        padding: 10px 0px;
+        justify-content:space-evenly;
+        align-items: center;
         backdrop-filter: blur(25px);
+        height: 70px;
     }
     
     .mobile-footer a {
         text-decoration: none;
         color: rgb(255, 0, 0);
-        font-size: 25px;
+        font-size: 35px;
     }
 
     .bottom p{
@@ -380,18 +384,8 @@ li a {
     .copy ul {
         display: none;
     }
-}
 
-@media  screen and (max-width : 950px) and (min-width : 620px) {
-    header {
-        position: relative;
-    }
-
-    .search-input {
+    .web-footer {
         display: none;
-    }
-
-    .welcome {
-        width: 80%;
     }
 }
