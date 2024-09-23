@@ -6,6 +6,7 @@ import { favourList, removeFromFavourList, saveToStorage } from '../assets/data/
 import { addTocart, updateLocalStorage, cart } from '../assets/data/cart.js';
 import { product } from '../assets/data/product.js';
 import { useEffect, useState } from 'react';
+import Footer from './footer.jsx';
 
 function Favour() {
 
@@ -40,11 +41,12 @@ function Favour() {
     return (
         <>
             <Header title='Store'/>
+            <p className="section-name">Favour</p>
             <div className="container">
                     {Favour.map((product, index) => (
                         <div className="product-container" key={index}>
-                            <div className="wish-button">
-                                <button className=" js-favour-click">
+                            <div className="wish-div">
+                                <button className=" js-favour-click wish-button">
                                     <i className="fa-solid fa-heart js-favour-click" data-product-id={product.productId} onClick={() => handleremoveFromFavourList(product.productId)}></i>
                                 </button>
                             </div>
@@ -66,24 +68,10 @@ function Favour() {
                         </div>
                     ))}
                 </div>
+
+                <Footer/>
         </>
     )
 }
 
 export default Favour
-
-
-/* import '../assets/css/store.css';
-import '../assets/css/common.css'
-import Header from './Header';
-
-export default function Favour() {
-    return (
-        <>
-        <Header title="Home"/>
-            <div>
-                <p>nothing</p>
-            </div>
-        </>
-    )
-} */

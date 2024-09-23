@@ -51,8 +51,8 @@ export default function Store() {
                 <div className="container">
                     {product.map((product, index) => (
                         <div className="product-container" key={index}>
-                            <div className="wish-button">
-                                <button>
+                            <div className='wish-div'>
+                                <button className="wish-button">
                                     <i className="fa-solid fa-heart js-favour-click" data-product-id={product.productId} onClick={() => handleFavourList(product.productId)}></i>
                                 </button>
                             </div>

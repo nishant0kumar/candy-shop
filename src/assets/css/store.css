@@ -1,5 +1,4 @@
 main {
-    margin: 0% 5%;
     margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -8,21 +7,18 @@ main {
 
 .section-name {
     margin-top: 5rem;
-    font-family: monospace;
     text-align: center;
     font-size: 40px;
-    color: wheat;
-    position: sticky;
-    top: 0;
+    color: rgb(255, 166, 0);
     text-transform: uppercase;
-    background-color: rgb(141, 141, 141);
     padding: 1rem;
-    z-index: 5;
+    z-index: 0;
 }
 
 .section-bar button {
-    padding: 10px 20px;
-    margin-top: 50px;
+    height: 40px;
+    width: 100px;
+    margin-top: 20px;
     background-color: white;
     border: 3px solid rgb(179, 179, 179);
     border-radius: 24px;
@@ -44,30 +40,26 @@ main {
 }
 
 .product-container {
-    position: relative;
     width: 330px;
     height: 420px;
-    margin: 10px 20px;
+    margin: 20px 20px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    border-radius: px;
-    border: 0.1px dotted rgb(125, 125, 125);
+    border-radius: 20px;
+    border: 1px dotted rgb(100, 100, 100);
 }
 
-
-.wish-button button {
-    color: white;
+.wish-div {
+    margin-top: 8px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 40px;
-    border: none;
-    width: 40px;
+    justify-content: end;
+}
+
+.wish-button{
     background-color: transparent;
+    border: none;
+    margin-right: 10px;
 }
 
 .wish-button i{
@@ -80,12 +72,8 @@ main {
 }
 
 .img-container {
-    position: relative;
-    top: 0;
     display: flex;
     justify-content: center;
-    padding: 20px;
-    border-radius: 6% 6% 0px 0px;
 }
 
 .img-container img {
@@ -95,18 +83,8 @@ main {
 }
 
 .product-detail {
-    margin: 0px 15px;
     display: flex;
     justify-content: space-evenly;
-}
-
-.product-name {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    text-align: center;
 }
 
 .product-detail span {

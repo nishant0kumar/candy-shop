@@ -1,15 +1,14 @@
 import '../assets/css/style1.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { cart, updateLocalStorage, addTocart, cartQuantity } from '../assets/data/cart.js';
 import { product } from '../assets/data/product.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from './Header.jsx';
 
 export default function Products() {
     const [cartProducts, setCartProducts] = useState([]);
-
     const [cartState, setCartState] = useState(cart);
+    const productGridRef = useRef(null);
 
     useEffect(() => {
         updateLocalStorage();
@@ -27,31 +26,39 @@ export default function Products() {
             return { ...matchingProduct, quantity: cartItem.quantity };
         });
         setCartProducts(updatedProducts);
-        console.log(cartQuantity)
-       /*  let productName;
-        function name(productId, product) {
-            product.forEach((product) => {
-                if(productId === product.productId){
-                   productName = product.name;
-                }
-            })
-        }
-        name(productId, product);
+
+        const productName = product.find(p => p.productId === productId)?.name || 'Product';
         toast.success(`${productName} added to cart`, {
             position: 'top-center',
             autoClose: 1000,
-        }); */
+        });
+    };
+
+    const scrollRight = () => {
+        if (productGridRef.current) {
+            productGridRef.current.scrollBy({
+                left: 450,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    const scrollLeft = () => {
+        if (productGridRef.current) {
+            productGridRef.current.scrollBy({
+                left: -300,
+                behavior: 'smooth',
+            });
+        }
     };
 
     return (
         <>
-        <Header title="Store"/>
-
             <div className="pad-pro">
                 <p className="late">Add to Cart Products</p>
-                <div className="select-product-cart js-products-grid">
+                <div className="select-product-cart js-products-grid" ref={productGridRef}>
                     {product.slice(0, 10).map((product, index) => (
-                        <div className="select-pro" key={index}>
+                        <div className="select-pro" key={product.productId}>
                             <div>
                                 <img src={product.image} alt="product-image" />
                                 <p className="product-name">{product.name}</p>
@@ -70,9 +77,11 @@ export default function Products() {
                         </div>
                     ))}
                 </div>
+                <div className='scroll-button'>
+                <span className="scroll-left" onClick={scrollLeft}> &lt; </span>
+                <span className="scroll-right" onClick={scrollRight}> &gt; </span>
             </div>
-            <span className="scroll-right"> &gt; </span>
-            <span className="scroll-left">&lt;</span>
+            </div>
             <ToastContainer />
         </>
     );

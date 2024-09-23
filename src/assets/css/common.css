@@ -13,13 +13,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    margin-bottom: 20px;
+    padding:0px 30px;
+    height: 8vh;
     position: fixed;
     width: 100%;
     top: 0px;
     z-index: 1;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(10px);
 }
 
 .loogo img {
@@ -48,9 +48,7 @@ header {
 .cart-link {
     margin: 0px 20px;
     position: relative;
-    background-color: #FFD700;
-    padding: 1rem 0.5rem;
-    border-radius: 50%;
+    font-size: 1.5rem;
 }
 
 .cart-link i {
@@ -65,7 +63,7 @@ header {
 .cart-btn span {
     position: absolute;
     top: -4px;
-    right: 22px;
+    right: -10px;
     text-decoration: none;
     font-size: 18px;
     font-family: monospace;
@@ -86,7 +84,7 @@ header {
     flex-wrap: nowrap;
     gap: 1.5rem;
     overflow-x: scroll;
-    padding: 4rem 6rem;
+    padding: 4rem 4rem 1rem 6rem;
     height: max-content;
 }
 
@@ -95,9 +93,9 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10rem 1rem;
-    height: 32rem;
-    width: 25rem;
+    padding: 0rem 1rem;
+    height: 500px;
+    width: 350px;
     border-radius: 24px;
     border: 1px solid rgb(61, 61, 61);
     transition: all 0.3s ease-in-out;
@@ -105,17 +103,17 @@ header {
 
 .select-pro img {
     padding-top: 30px;
-    height: 22rem;
-    width: 20rem;
+    height: 350px;
+    width: 320px;
 }
 
 .product-name {
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    font-family: cursive;
     font-weight: bolder;
     font-size: 24px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .select-details {
@@ -163,9 +161,9 @@ header {
     font-weight: bolder;
     padding: 14px 18px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.752);
+    background-color: rgba(190, 190, 190, 0.7);
     position: relative;
-    top: -30rem;
+    top: -25rem;
     margin-left: 25px;
     cursor: pointer;
 }
@@ -176,12 +174,14 @@ header {
     font-weight: bolder;
     padding: 14px 18px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.745);
+    background-color: rgba(190, 190, 190, 0.7);
     position: relative;
-    top: -30rem;
+    top: -25rem;
     float: right;
     cursor: pointer;
 }
+
+
 
 
 

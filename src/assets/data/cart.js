@@ -1,25 +1,5 @@
 /* ------------------------------cart data---------------------------- */
 
-/* export let cartQuantity = JSON.parse(localStorage.getItem('cartQuantity'));
-if (cartQuantity == null || cartQuantity == undefined) {
-    cartQuantity = 0;
-}
-
-export let cart = JSON.parse(localStorage.getItem('cart'));
-if (!cart) {
-    cart = [{
-        productId: 'a1',
-        quantity: 1
-    },
-    {
-        productId: 'a2',
-        quantity: 1
-    }];
-} */
-
-
-
-
 export let cartQuantity = JSON.parse(localStorage.getItem('cartQuantity'));
 if (cartQuantity == null || cartQuantity == undefined || cartQuantity < 0) {
     cartQuantity = 0;
