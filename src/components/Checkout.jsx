@@ -24,30 +24,6 @@ export default function Checkout() {
         updateLocalStorage();
     }, [cartState]);
 
-    const handleAddToCart = (productId) => {
-        addTocart(productId);
-        setCartState([...cart]);
-        const updatedProducts = cart.map(cartItem => {
-            const matchingProduct = product.find(prod => prod.productId === cartItem.productId);
-            return { ...matchingProduct, quantity: cartItem.quantity };
-        });
-        setCartProducts(updatedProducts);
-        calculateTotalAmount(updatedProducts);
-        let productName;
-        function name(productId, product) {
-            product.forEach((product) => {
-                if(productId === product.productId){
-                   productName = product.name;
-                }
-            })
-        }
-        name(productId, product);
-        toast.success(`${productName} added to cart`, {
-            position: 'top-center',
-            autoClose: 1000,
-        });
-    };
-
     useEffect(() => {
         const matchingProducts = cart.map(cartItem => {
             const matchingProduct = product.find(prod => prod.productId === cartItem.productId);
@@ -101,16 +77,16 @@ export default function Checkout() {
     if (totalAmount <= 0) {
         return (
             <>
-                <Header title="Store" />
+                <Header title="Store"/>
                 <div className="broder">
                     <div className="amount">
                         <p>Your bag total is <span className="js-total-amount">Bitter</span></p>
-                        <button className="check-out">Check Out</button>
+                        <button className="disabled" disabled>Check Out</button>
                     </div>
     
                     <div className="product-information js-order-summary">
                         <div class="product-box">
-                            <h1>Sweetness None! Add Some <i className='fa-solid fa-laugh'></i></h1><br/><br/><br/>
+                            <h1>Sweetness None! <br/> Add Some <i className='fa-solid fa-laugh'></i></h1><br/><br/><br/>
                             <img src="https://www.iconeasy.com/icon/256/System/Swirl%20Finder/Finder%20Candy.png"/>
                         </div>
                         
@@ -136,20 +112,18 @@ export default function Checkout() {
                                 </div>
                             </div>
                         </div>
-                        <button className="check-out">Check Out</button>
+                        <button className="disabled" disabled>Check Out</button>
                     </div>
                 </div>
-                <Products/>
-            <ToastContainer />
             <Footer/>
-
+            <ToastContainer/>
             </>
         );
     }
     else {
         return (
             <>
-                <Header title="Store" />
+                <Header title="store"/>
                 <div className="broder">
                     <div className="amount">
                         <p>Your bag total is <span className="js-total-amount">&#x20b9;{totalAmount.toFixed(2)}</span></p>
@@ -189,10 +163,10 @@ export default function Checkout() {
                                         </div>
                                         <div className="order">
                                             <p>
-                                                Order today. Delivers to 400011
+                                                Order today.
+                                                <br />
                                                 <span> {deliveryDate}— Free</span>
                                             </p>
-                                            <p>Order now. Today at Store.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -223,9 +197,8 @@ export default function Checkout() {
                         <button className="check-out">Check Out</button>
                     </div>
                 </div>
-                <Products />
-            <ToastContainer />
             <Footer/>
+            <ToastContainer/>
             </>
         );
     }
