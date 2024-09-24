@@ -44,7 +44,7 @@ export default function Footer() {
             <div className="mobile-footer">
                 <a href="/"><i className="fa-solid fa-house"></i></a>
                 <a href="/store"><i className="fa-solid fa-store"></i></a>
-                <a href="./pages/wishlist.html"><i className="fa-solid fa-heart"></i></a>
+                <a href="/favour"><i className="fa-solid fa-heart"></i></a>
                 <div className="js-cart-bag"><CartButton request='footer'/></div>
             </div>
         </>

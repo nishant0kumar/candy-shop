@@ -15,7 +15,6 @@ export default function Header(props) {
           <nav className="nav">
             <a href={props.title} className="nav-link">{props.title}</a>
             <a href="/favour" className="nav-link">Love</a>
-            <a href="/contact" className="nav-link">Contact</a>
             <div className="js-cart-container">
               <CartButton/>
                 

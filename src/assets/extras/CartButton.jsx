@@ -11,7 +11,7 @@ export default function CartButton(){
     },[quantityState]);
         return (
             <>
-                <a href="/checkout" className="cart-link"><i className="fa-solid fa-shopping-bag cart-btn js-cart-live-quantity"><span className="js-cart">{cartQuantity}</span></i></a>
+                <a href="/cart" className="cart-link"><i className="fa-solid fa-shopping-bag cart-btn js-cart-live-quantity"><span className="js-cart">{cartQuantity}</span></i></a>
             </>
         )        
 }
