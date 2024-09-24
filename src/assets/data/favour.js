@@ -4,6 +4,11 @@ if (!favourList) {
     favourList = [];
 }
 
+export let countFavour = JSON.parse(localStorage.getItem('cartQuantity'));
+if (countFavour == null || countFavour == undefined || countFavour < 0) {
+    countFavour = 0;
+}
+
 export function addToFavourList(productId) {
 
     let matchingItem;
@@ -18,12 +23,14 @@ export function addToFavourList(productId) {
         favourList.push({
             productId: productId,
         });
+        countFavour++;
     }
     saveToStorage()
 }
 
 export function saveToStorage() {
     localStorage.setItem('favourList', JSON.stringify(favourList));
+    localStorage.setItem('countFavour', JSON.stringify(countFavour));
 }
 
 

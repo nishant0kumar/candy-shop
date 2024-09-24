@@ -32,7 +32,7 @@
     grid-template-columns: auto auto auto auto auto;
     overflow-x: scroll;
     gap: 20px;
-    padding: 4rem 1rem;
+    padding: 4rem 4rem;
     margin: 0;
 }
 
@@ -69,12 +69,10 @@
 }
 
 .orange-color {
-    background-color: rgb(255, 115, 0);
     color: #FFD700;
 }
 
 .red-color {
-    background-color: rgb(255, 40, 40);
     color: #8ecaef;
 }
 

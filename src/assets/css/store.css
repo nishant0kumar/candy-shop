@@ -17,7 +17,7 @@ main {
 
 .section-bar button {
     height: 40px;
-    width: 100px;
+    padding: 0px 20px;
     margin-top: 20px;
     background-color: white;
     border: 3px solid rgb(179, 179, 179);
@@ -68,6 +68,10 @@ main {
 }
 
 .wish-button i:active {
+    color: red;
+}
+
+.wish-button .active {
     color: red;
 }
 
@@ -134,10 +138,15 @@ main {
     }
 
     .section-name {
-        margin: 0rem;
+        margin: 2.5rem 0rem 0rem 0rem;
+    }
+
+    .section-bar button {
+        margin: 0;
     }
 
     .container {
+        margin: 30px;
         justify-content: center;
     }
 

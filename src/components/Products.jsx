@@ -4,6 +4,7 @@ import { cart, updateLocalStorage, addTocart, cartQuantity } from '../assets/dat
 import { product } from '../assets/data/product.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Header from './Header.jsx';
 
 export default function Products() {
     const [cartProducts, setCartProducts] = useState([]);
@@ -37,7 +38,7 @@ export default function Products() {
     const scrollRight = () => {
         if (productGridRef.current) {
             productGridRef.current.scrollBy({
-                left: 450,
+                left: 500,
                 behavior: 'smooth',
             });
         }
@@ -46,7 +47,7 @@ export default function Products() {
     const scrollLeft = () => {
         if (productGridRef.current) {
             productGridRef.current.scrollBy({
-                left: -300,
+                left: -500,
                 behavior: 'smooth',
             });
         }
@@ -54,6 +55,7 @@ export default function Products() {
 
     return (
         <>
+        <Header title="Store"/>
             <div className="pad-pro">
                 <p className="late">Add to Cart Products</p>
                 <div className="select-product-cart js-products-grid" ref={productGridRef}>

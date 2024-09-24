@@ -34,7 +34,6 @@ export default function Store() {
 
     const handleFavourList = (productId) => {
         addToFavourList(productId);
-        console.log(favourList)
     }
 
     return (

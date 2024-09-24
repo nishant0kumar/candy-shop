@@ -242,7 +242,8 @@ li a {
 
     header {
         padding: 15px 0;
-        position: relative;
+        position: absolute;
+        top: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -285,7 +286,7 @@ li a {
     }
     
     .scroll-left, .scroll-right {
-        display: none;
+        top: -5rem;
     }
 
     .select-product-cart {

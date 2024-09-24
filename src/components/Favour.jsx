@@ -2,7 +2,7 @@ import '../assets/css/store.css';
 import '../assets/css/common.css'
 import Header from './Header.jsx'
 
-import { favourList, removeFromFavourList, saveToStorage } from '../assets/data/favour.js';
+import { favourList, removeFromFavourList, saveToStorage, countFavour } from '../assets/data/favour.js';
 import { addTocart, updateLocalStorage, cart } from '../assets/data/cart.js';
 import { product } from '../assets/data/product.js';
 import { useEffect, useState } from 'react';
@@ -37,8 +37,7 @@ function Favour() {
         });
         setFavour(updatedProducts);
     }
-
-    return (
+        return (
         <>
             <Header title='Store'/>
             <p className="section-name">Favour</p>
@@ -47,7 +46,7 @@ function Favour() {
                         <div className="product-container" key={index}>
                             <div className="wish-div">
                                 <button className=" js-favour-click wish-button">
-                                    <i className="fa-solid fa-heart js-favour-click" data-product-id={product.productId} onClick={() => handleremoveFromFavourList(product.productId)}></i>
+                                    <i className="fa-solid fa-heart active js-favour-click" data-product-id={product.productId} onClick={() => handleremoveFromFavourList(product.productId)}></i>
                                 </button>
                             </div>
                             <div className="img-container">
