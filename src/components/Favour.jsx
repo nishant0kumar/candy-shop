@@ -1,6 +1,8 @@
 import '../assets/css/store.css';
 import '../assets/css/common.css'
 import Header from './Header.jsx'
+import { Slide,ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { favourList, removeFromFavourList, saveToStorage, countFavour } from '../assets/data/favour.js';
 import { addTocart, updateLocalStorage, cart } from '../assets/data/cart.js';
@@ -26,10 +28,34 @@ function Favour() {
 
     const handleAddToCart = (productId) => {
         addTocart(productId);
-        setCartState(...cart);
+        setCartState([...cart]);
+        let productName;
+        product.forEach((item) => {
+            if(productId === item.productId) {
+                productName = item.name;
+            }
+        });
+        toast.success(`${productName} added to cart`, {
+            position: 'top-center',
+            autoClose: 1000,
+        });
     }
 
     const handleremoveFromFavourList =(productId) => {
+        let productName;
+        product.forEach((item) => {
+            if(productId === item.productId) {
+                productName = item.name;
+            }
+        });
+        toast.success(`${productName} removed from favour`, {
+            closeButton: false,
+            hideProgressBar: true,
+            theme: "light",
+            position: 'bottom-left',
+            autoClose: 2000,
+            transition: Slide
+        });
         removeFromFavourList(productId);
         const updatedProducts = favourList.map(cartItem => {
             const matchingProduct = product.find(prod => prod.productId === cartItem.productId);
@@ -37,40 +63,66 @@ function Favour() {
         });
         setFavour(updatedProducts);
     }
-        return (
-        <>
-            <Header title='Store'/>
-            <p className="section-name">Favour</p>
-            <div className="container">
-                    {Favour.map((product, index) => (
-                        <div className="product-container" key={index}>
-                            <div className="wish-div">
-                                <button className=" js-favour-click wish-button">
-                                    <i className="fa-solid fa-heart active js-favour-click" data-product-id={product.productId} onClick={() => handleremoveFromFavourList(product.productId)}></i>
-                                </button>
-                            </div>
-                            <div className="img-container">
-                                <img src={product.image} alt="product-image" />
-                            </div>
-                            <p className="product-name">{product.name}</p>
-                            <div className="product-detail">
-                                <div className="price">
-                                    <p>MRP &#x20b9; {((product.priceCents) / 100).toFixed(2)}/-</p>
-                                    <p>Wholesale rate: &#x20b9; {(product.wholesaleRate / 100).toFixed(2)} /-</p>
+    
+        if (countFavour > 0) {
+            return (
+            <>
+                <Header title='Store'/>
+                <p className="section-name">Favour</p>
+                <div className="container">
+                        {Favour.map((product, index) => (
+                            <div className="product-container" key={index}>
+                                <div className="wish-div">
+                                    <button className=" js-favour-click wish-button">
+                                        <i className="fa-solid fa-heart active js-favour-click" data-product-id={product.productId} onClick={() => handleremoveFromFavourList(product.productId)}></i>
+                                    </button>
                                 </div>
-                                <div className="cart">
-                                    <i className="fa-solid f-shopping-bag js-add-to-cart" onClick={() => handleAddToCart(product.productId)} data-product-id={product.productId}>
-                                        <span> ~O~</span>
-                                    </i>
+                                <div className="img-container">
+                                    <img src={product.image} alt="product-image" />
+                                </div>
+                                <p className="product-name">{product.name}</p>
+                                <div className="product-detail">
+                                    <div className="price">
+                                        <p>MRP &#x20b9; {((product.priceCents) / 100).toFixed(2)}/-</p>
+                                        <p>Wholesale rate: &#x20b9; {(product.wholesaleRate / 100).toFixed(2)} /-</p>
+                                    </div>
+                                    <div className="cart">
+                                        <i className="fa-solid f-shopping-bag js-add-to-cart" onClick={() => handleAddToCart(product.productId)} data-product-id={product.productId}>
+                                            <span> ~O~</span>
+                                        </i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
 
-                <Footer/>
-        </>
-    )
+                    <Footer/>
+            <ToastContainer/>
+
+            </>
+    )} else {
+        return (
+            <>
+                <Header title='Store'/>
+                <p className="section-name">Favour</p>
+                <div className="container">
+                            <div className="product-container">
+                                <div className="wish-div">
+                                    <button className=" js-favour-click wish-button">
+                                        <i className="fa-solid fa-heart active js-favour-click"></i>
+                                    </button>
+                                </div>
+                                <div className="img-container">
+                                    <img src="https://www.iconeasy.com/icon/256/System/Swirl%20Finder/Finder%20Candy.png" alt="empty" />
+                                </div>
+                                <p className="product-name">No love for sweets added</p>
+                                
+                            </div>
+                    </div>
+
+                    <Footer/>
+            </>
+    )}
 }
 
 export default Favour

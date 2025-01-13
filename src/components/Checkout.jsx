@@ -2,7 +2,8 @@ import '../assets/css/cart.css';
 import '../assets/css/common.css';
 import Header from './Header.jsx';
 import { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { product } from '../assets/data/product';
 import { cart, cartQuantity, removeFromCart, updateCartQuantity, updateLocalStorage,addTocart } from '../assets/data/cart';
@@ -56,8 +57,12 @@ export default function Checkout() {
         }
         name(productId, product);
         toast.success(`${productName} sweetness removed`, {
-            position: 'top-center',
-            autoClose: 1000,
+            closeButton: false,
+            hideProgressBar: true,
+            theme: "light",
+            position: 'bottom-left',
+            autoClose: 2000,
+            transition: Slide
         });
     };
 
@@ -85,7 +90,7 @@ export default function Checkout() {
                     </div>
     
                     <div className="product-information js-order-summary">
-                        <div class="product-box">
+                        <div className="product-box">
                             <h1>Sweetness None! <br/> Add Some <i className='fa-solid fa-laugh'></i></h1><br/><br/><br/>
                             <img src="https://www.iconeasy.com/icon/256/System/Swirl%20Finder/Finder%20Candy.png"/>
                         </div>
@@ -126,7 +131,7 @@ export default function Checkout() {
                 <Header title="store"/>
                 <div className="broder">
                     <div className="amount">
-                        <p>Your bag total is <span className="js-total-amount">&#x20b9;{totalAmount.toFixed(2)}</span></p>
+                        <p>Your bag total is <span className="js-total-amount">&#x20b9;{(totalAmount+100).toFixed(2)}</span></p>
                         <button className="check-out">Check Out</button>
                     </div>
     
@@ -165,7 +170,7 @@ export default function Checkout() {
                                             <p>
                                                 Order today.
                                                 <br />
-                                                <span> {deliveryDate}— Free</span>
+                                                <span>Deliver by {deliveryDate}— Free</span>
                                             </p>
                                         </div>
                                     </div>

@@ -2,7 +2,7 @@ import '../assets/css/style1.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { cart, updateLocalStorage, addTocart, cartQuantity } from '../assets/data/cart.js';
 import { product } from '../assets/data/product.js';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './Header.jsx';
 
@@ -30,8 +30,12 @@ export default function Products() {
 
         const productName = product.find(p => p.productId === productId)?.name || 'Product';
         toast.success(`${productName} added to cart`, {
-            position: 'top-center',
-            autoClose: 1000,
+            closeButton: false,
+            hideProgressBar: true,
+            theme: "light",
+            position: 'bottom-left',
+            autoClose: 2000,
+            transition: Slide
         });
     };
 

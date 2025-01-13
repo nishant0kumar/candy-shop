@@ -11,10 +11,6 @@ export default function Footer() {
                     <button>Your Favourites</button>
                 </div>
                 <div>
-                    <h3>Phone Number &#x260E; : +91 9250040805</h3>
-                    <h4>Mail Id &#9777; : kamleshkumar92500@gmail.com</h4>
-                </div>
-                <div>
                     <ol>
                         <li>
                         Step into the world of sweetness at Sweet Store. From timeless classics to artisanal delights, our carefully curated selection of candies and chocolates promises to satisfy every craving and sweeten every moment. Treat yourself to a taste of happiness today!</li>
@@ -31,7 +27,7 @@ export default function Footer() {
                 </div>
 
                 <div className="copy">
-                    <p>Copyright &copy; 2024 Anita Sweet House. All rights reserved</p>
+                    <p>Copyright &copy; 2025 All rights reserved</p>
                     <ul>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Terms of Use</a></li>

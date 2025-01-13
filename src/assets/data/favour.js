@@ -4,7 +4,7 @@ if (!favourList) {
     favourList = [];
 }
 
-export let countFavour = JSON.parse(localStorage.getItem('cartQuantity'));
+export let countFavour = JSON.parse(localStorage.getItem('countFavour'));
 if (countFavour == null || countFavour == undefined || countFavour < 0) {
     countFavour = 0;
 }
@@ -14,18 +14,24 @@ export function addToFavourList(productId) {
     let matchingItem;
     favourList.forEach((item) => {
         if (productId === item.productId){
-            matchingItem = item;
+            matchingItem = item; // Finds and stores the matching item from favourList if productId matches
         }
     });
     if (matchingItem){
-        favourList.re
+        console.log("already added");
+        
+        /* favourList.splice(favourList.indexOf(matchingItem), 1); // Removes the matching item from favourList array
+        countFavour--; // Decrements the count of items in favourList
+        console.log(countFavour); // Logs the updated count */
     } else{
         favourList.push({
-            productId: productId,
+            productId: productId, // Creates a new object with the productId property set to the passed in productId
         });
-        countFavour++;
+        countFavour += 1;
     }
     saveToStorage()
+    console.log(countFavour);
+    
 }
 
 export function saveToStorage() {
@@ -36,14 +42,15 @@ export function saveToStorage() {
 
 
 
-export function removeFromFavourList(productId){
-    const newFavour = [];
-    favourList.forEach((cartItem) => {
-        if (cartItem.productId !== productId) {
-            newFavour.push(cartItem);
-        }
-    });
-
-    favourList = newFavour;
-    saveToStorage();
+export function removeFromFavourList(productId) {
+    // Find index of item to remove
+    const itemIndex = favourList.findIndex(item => item.productId === productId);
+    
+    // Remove item if found
+    if (itemIndex !== -1) {
+        favourList.splice(itemIndex, 1);
+        countFavour--;
+        saveToStorage();
+        
+    }
 }

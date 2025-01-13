@@ -3,13 +3,15 @@ import '../assets/css/store.css';
 import Header from './Header.jsx';
 import { product } from '../assets/data/product.js';
 import { addTocart, removeFromCart, cart, updateLocalStorage } from '../assets/data/cart.js';
-import { ToastContainer, toast } from 'react-toastify';
+import { Bounce, Flip, Slide, ToastContainer, Zoom, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './footer.jsx';
 import { addToFavourList, favourList, saveToStorage } from '../assets/data/favour.js';
 
 export default function Store() {
     const [cartState, setCartState] = useState(cart);
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    
     useEffect(() => {
         updateLocalStorage();
     }, [cartState]);
@@ -27,14 +29,40 @@ export default function Store() {
         }
         name(productId, product);
         toast.success(`${productName} added to cart`, {
-            position: 'top-center',
-            autoClose: 1000,
+            closeButton: false,
+            hideProgressBar: true,
+            theme: "light",
+            position: 'bottom-left',
+            autoClose: 2000,
+            transition: Slide
         });
     };
 
     const handleFavourList = (productId) => {
         addToFavourList(productId);
+        let productName;
+        product.forEach((item) => {
+            if(productId === item.productId) {
+                productName = item.name;
+            }
+        });
+        toast.success(`${productName} added to favour`, {
+            closeButton: false,
+            hideProgressBar: true,
+            theme: "light",
+            position: 'bottom-left',
+            autoClose: 2000,
+            transition: Slide
+        });
     }
+
+    const filteredProducts = selectedCategory === 'all' 
+        ? product 
+        : product.filter(item => item.category.toLowerCase() === selectedCategory.toLowerCase());
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
 
     return (
         <>
@@ -42,13 +70,33 @@ export default function Store() {
             <p className="section-name">Store</p>
             <main>
                 <nav className="section-bar">
-                    <button>All</button>
-                    <button>Candy</button>
-                    <button>Premium</button>
-                    <button>Accessory</button>
+                    <button 
+                        className={selectedCategory === 'all' ? 'active' : ''} 
+                        onClick={() => handleCategoryClick('all')}
+                    >
+                        All
+                    </button>
+                    <button 
+                        className={selectedCategory === 'candy' ? 'active' : ''} 
+                        onClick={() => handleCategoryClick('candy')}
+                    >
+                        Candy
+                    </button>
+                    <button 
+                        className={selectedCategory === 'premium' ? 'active' : ''} 
+                        onClick={() => handleCategoryClick('premium')}
+                    >
+                        Premium
+                    </button>
+                    <button 
+                        className={selectedCategory === 'accessories' ? 'active' : ''} 
+                        onClick={() => handleCategoryClick('accessories')}
+                    >
+                        Accessory
+                    </button>
                 </nav>
                 <div className="container">
-                    {product.map((product, index) => (
+                    {filteredProducts.map((product, index) => (
                         <div className="product-container" key={index}>
                             <div className='wish-div'>
                                 <button className="wish-button">
